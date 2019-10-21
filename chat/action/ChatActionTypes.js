@@ -1,0 +1,2 @@
+// UI actions
+export const TOGGLE_MESSAGE_SELECTION = 'TOGGLE_MESSAGE_SELECTION';
