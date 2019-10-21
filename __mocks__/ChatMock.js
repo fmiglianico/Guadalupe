@@ -1,40 +1,41 @@
+import Images from '@asset/images';
+
 export const DETAIL = {
 	name: 'Cluster',
-	avatar_uri: require('../base/asset/images/Cluster.jpg'),
+	avatar_uri: Images.Cluster,
 	currentProfile: 0,
 	profiles: {
 		0 : {
 			name: 'Wolfgang',
-			avatar_uri: require('../base/asset/images/Wolfgang.png')
+			avatar_uri: Images.Wolfgang
 		},
 		1 : {
 			name: 'Sun',
-			avatar_uri: require('../base/asset/images/Sun.png')
-			
+			avatar_uri: Images.Sun
 		},
 		2 : {
 			name: 'Will',
-			avatar_uri: require('../base/asset/images/Will.png')
+			avatar_uri: Images.Will
 		},
 		3 : {
 			name: 'Riley',
-			avatar_uri: require('../base/asset/images/Riley.png')
+			avatar_uri: Images.Riley
 		},
 		4 : {
 			name: 'Capheus',
-			avatar_uri: require('../base/asset/images/VanDamme.png')
+			avatar_uri: Images.Capheus
 		},
 		5 : {
 			name: 'Kala',
-			avatar_uri: require('../base/asset/images/Kala.png')
+			avatar_uri: Images.Kala
 		},
 		6 : {
 			name: 'Lito',
-			avatar_uri: require('../base/asset/images/Lito.png')
+			avatar_uri: Images.Lito
 		},
 		7 : {
 			name: 'Naomi',
-			avatar_uri: require('../base/asset/images/Naomi.png')
+			avatar_uri: Images.Naomi
 		}
 	},
 	conversation: [

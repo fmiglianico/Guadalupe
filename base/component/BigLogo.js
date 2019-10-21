@@ -1,7 +1,9 @@
 import React, { PureComponent } from 'react';
 import { ImageBackground } from 'react-native';
 
-const logo = require("../asset/images/Guadalupe.png");
+import Images from '@asset/images';
+
+const logo = Images.Guadalupe;
 
 export default class BigLogo extends PureComponent {
   render() {

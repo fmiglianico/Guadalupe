@@ -1,8 +1,9 @@
 import React, { PureComponent } from 'react';
 import { ImageBackground } from 'react-native';
 import style from '../style/style';
+import Images from '@asset/images';
 
-const backgroundImg = require("../asset/images/tyler-nix-qs0im4pLYbE-unsplash.jpg");
+const backgroundImg = Images.Background;
 
 export default class BackgroundImage extends PureComponent {
   render() {

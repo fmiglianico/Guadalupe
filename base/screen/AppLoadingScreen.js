@@ -7,6 +7,7 @@ import { Ionicons, MaterialIcons, FontAwesome, MaterialCommunityIcons } from '@e
 import { loadResources, loadResourcesFulfilled, loadResourcesRejected } from '../reducer/baseReducer';
 import AppLoading from '../component/AppLoading';
 import * as Routes from '../constant/Routes';
+import Images from '@asset/images';
 
 class AppLoadingScreen extends PureComponent {
 
@@ -41,17 +42,17 @@ const loadAsyncResources = async (dispatch) => {
   await Promise.all([
     Asset.loadAsync([
       // Load images
-      require('../asset/images/Guadalupe.png'),
-      require('../asset/images/tyler-nix-qs0im4pLYbE-unsplash.jpg'),
-      require('../asset/images/Cluster.jpg'),
-      require('../asset/images/Will.png'),
-      require('../asset/images/Kala.png'),
-      require('../asset/images/Wolfgang.png'),
-      require('../asset/images/Sun.png'),
-      require('../asset/images/VanDamme.png'),
-      require('../asset/images/Riley.png'),
-      require('../asset/images/Lito.png'),
-      require('../asset/images/Naomi.png'),
+      Images.Background,
+      Images.Guadalupe,
+      Images.Cluster,
+      Images.Wolfgang,
+      Images.Lito,
+      Images.Riley,
+      Images.Will,
+      Images.Sun,
+      Images.Capheus,
+      Images.Naomi,
+      Images.Kala
     ]),
     Font.loadAsync({
       // Load icon fonts
