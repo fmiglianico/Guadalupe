@@ -1,6 +1,3 @@
-// Init
-export const APP_LOADING = "AppLoading";
-
 // Auth
 export const AUTH = "Auth";
 export const LOGIN = "Login";

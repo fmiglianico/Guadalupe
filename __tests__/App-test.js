@@ -1,5 +1,5 @@
 import React from 'react';
-import NavigationTestUtils from 'react-navigation/NavigationTestUtils';
+import NavigationTestUtils from '@react-navigation/native/NavigationTestUtils';
 import renderer from 'react-test-renderer';
 
 import App from '../App';

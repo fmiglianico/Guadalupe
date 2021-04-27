@@ -1,28 +1,18 @@
 import React from 'react';
-import { createMaterialTopTabNavigator } from 'react-navigation';
+import { createMaterialTopTabNavigator } from '@react-navigation/material-top-tabs';
 
 import HomeStack from './HomeStack';
 import * as Routes from '../constant/Routes';
-import * as Colors from '../constant/Colors';
 import ChatListScreen from "../../chat/screen/ChatListScreen";
 
-export default TabNavigator = createMaterialTopTabNavigator(
-  {
-    Home: HomeStack,
-    ChatList: ChatListScreen
-  },
-  {
-    initialRouteName: Routes.HOME,
-    tabBarOptions: {
-      activeTintColor: 'white',
-      showIcon: true,
-      showLabel: true,
-      style: {
-        backgroundColor: Colors.DARK_GREY
-      },
-      labelStyle: {
-        fontWeight: 'bold'
-      }
-    }
-  }
-);
+const { Navigator, Screen } = createMaterialTopTabNavigator();
+
+export default function TabNavigator() {
+
+  return (
+    <Navigator initialRouteName={Routes.HOME} screenOptions={{ headerShown: false }}>
+      <Screen name={Routes.HOME} component={HomeStack} />
+      <Screen name={Routes.CHAT_LIST} component={ChatListScreen} />
+    </Navigator>
+  );
+};

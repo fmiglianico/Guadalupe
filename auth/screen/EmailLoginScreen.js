@@ -63,14 +63,14 @@ export default class EmailLoginScreen extends PureComponent {
   //   });
   // }
 
-	render() {
+	render({ navigation }) {
 		return (
 			<BackgroundImage>	
 				<Header backgroundColor='transparent' containerStyle={{zIndex: 1}}>
 						<Icon
 							name="arrow-back"
 							color="white"
-							onPress={() => this.props.navigation.goBack()}
+							onPress={() => navigation.goBack()}
 						/>
 				</Header>
 

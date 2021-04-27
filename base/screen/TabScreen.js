@@ -16,7 +16,7 @@ export default class TabScreen extends PureComponent {
 					<Text style={{color: 'white', fontSize: 19}}>GUADALUPE</Text>
 					<Icon name='menu' size={28} color='white' />
 				</Header>
-				<TabNavigator navigation={this.props.navigation} />
+				<TabNavigator />
 			</View>
 		);
 	}

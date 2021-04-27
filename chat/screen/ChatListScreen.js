@@ -1,41 +1,30 @@
 import React, { PureComponent } from 'react';
 import { ScrollView } from "react-native";
-import { ListItem, Icon } from 'react-native-elements';
+import { ListItem, Avatar } from 'react-native-elements';
 import { LIST } from '../../__mocks__/ChatListMock';
 
 import * as Routes from '../../base/constant/Routes';
 
-export default class ChatListScreen extends PureComponent {
+export default function ChatListScreen({ navigation }) {
 
-	static navigationOptions = {
-		
-		tabBarIcon:({tintColor, focused})=>(  
-			<Icon
-					name={focused ? 'comment-processing' : 'comment-processing-outline'}
-					type='material-community'
-					color={tintColor}
-					size={25}  
-			/>
-		)
-	};
-
-	render() {
-		return (
-			<ScrollView>
-				{
-					LIST.map((l, i) => (
-						<ListItem
-							key={i}
-							leftAvatar={{ source: l.avatar_uri }}
-							title={l.name}
-							subtitle={l.subtitle}
-							bottomDivider
-							chevron
-							onPress={() => this.props.navigation.navigate(Routes.CHAT)}
-						/>
-					))
-				}
-			</ScrollView>
-		);
-	}
+	return (
+		<ScrollView>
+			{
+				LIST.map((l, i) => (
+					<ListItem
+						key={i}
+						onPress={() => navigation.navigate(Routes.CHAT)}
+						bottomDivider
+					>
+						<Avatar source={l.avatar_uri} rounded />
+						<ListItem.Content>
+							<ListItem.Title>{l.name}</ListItem.Title>
+							<ListItem.Subtitle>{l.subtitle}</ListItem.Subtitle>
+						</ListItem.Content>
+						<ListItem.Chevron/>
+					</ListItem>
+				))
+			}
+		</ScrollView>
+	);
 }

@@ -1,19 +1,18 @@
 import React, { PureComponent } from 'react';
 import { Header, Text, ButtonGroup, Icon } from 'react-native-elements';
 import { View } from 'react-native';
-import { withNavigation } from 'react-navigation';
 
 import * as Colors from '../constants/Colors';
 import * as Routes from '../constants/Routes';
 
-class TabHeader extends PureComponent {
+export default class TabHeader extends PureComponent {
 
-  getTabs = () => {
+  getTabs = (navigation) => {
     const homeButton = () => 
       <Icon 
         name='home'
         type='material'
-        onPress={() => this.props.navigation.navigate(Routes.DASHBOARD)} 
+        onPress={() => navigation.navigate(Routes.DASHBOARD)} 
         color='white'
         suppressHighlighting={true}
       />;
@@ -21,25 +20,25 @@ class TabHeader extends PureComponent {
       <Icon 
         name='chat'
         type='material'
-        onPress={() => this.props.navigation.navigate(Routes.DISCUSSION)} 
+        onPress={() => navigation.navigate(Routes.DISCUSSION)} 
         color='white'
         suppressHighlighting={true}
       />;
     return [{element: homeButton}, {element: discussionButton}];
   }
 
-  tabPressed = (selectedIndex) => {
+  tabPressed = (navigation) =>  (selectedIndex) => {
     switch(selectedIndex) {
       case 1:
-        this.props.navigation.navigate(Routes.DISCUSSION);
+        navigation.navigate(Routes.DISCUSSION);
         return;
       default:
-        this.props.navigation.navigate(Routes.DASHBOARD);
+        navigation.navigate(Routes.DASHBOARD);
         return;
     }
   }
 
-  render() {
+  render({ navigation }) {
     return (
       <View>
         <Header backgroundColor={Colors.DARK_GREY}>
@@ -47,8 +46,8 @@ class TabHeader extends PureComponent {
           <Text style={{color: 'white', fontSize: 16, fontWeight: 'bold'}}>GUADALUPE</Text>
         </Header>
         <ButtonGroup
-          buttons={this.getTabs()}
-          onPress={this.tabPressed}
+          buttons={this.getTabs(navigation)}
+          onPress={this.tabPressed(navigation)}
           containerStyle={{
             height: 60, 
             width:'100%', 
@@ -70,5 +69,3 @@ class TabHeader extends PureComponent {
     )
   }
 }
-
-export default withNavigation(TabHeader);
