@@ -184,10 +184,10 @@ export const googleLoginRejected = (error) => {
 }
 
 // Facebook login functions
-export const facebookLogin = (userInfo) => {
+export const facebookLogin = () => {
 	return {
 		type: FACEBOOK_LOGIN(PENDING),
-		payload: userInfo
+		payload: null
 	}
 }
 

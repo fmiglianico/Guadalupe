@@ -1,9 +1,8 @@
 import React from 'react';
 import { ImageBackground } from 'react-native';
 import style from '../style/style';
-
-const logo = require("../asset/images/Guadalupe.png");
+import Images from '@asset/images';
 
 export default function HeaderLogo() {
-  return <ImageBackground source={logo} style={style.headerLogo} />;
+  return <ImageBackground source={Images.Guadalupe} style={style.headerLogo} />;
 }

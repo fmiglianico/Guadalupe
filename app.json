@@ -9,9 +9,9 @@
     ],
     "version": "1.0.1",
     "orientation": "portrait",
-    "icon": "./base/asset/images/icon.png",
+    "icon": "./asset/images/icon.png",
     "splash": {
-      "image": "./base/asset/images/splash.png",
+      "image": "./asset/images/splash.png",
       "resizeMode": "contain",
       "backgroundColor": "#ffffff"
     },
@@ -28,12 +28,27 @@
     "userInterfaceStyle": "automatic",
     "android": {
       "adaptiveIcon": {
-        "foregroundImage": "./base/asset/images/adaptive-icon.png",
+        "foregroundImage": "./asset/images/adaptive-icon.png",
         "backgroundColor": "#FFFFFF"
       }
     },
     "web": {
-      "favicon": "./base/asset/images/icon.png"
+      "favicon": "./asset/images/icon.png"
+    },
+    "extra": {
+      "firebase": {
+        "apiKey": "AIzaSyBJwfejeSNYUFCoKDIP2XAD4vBrtQcGtQ0",
+        "authDomain": "guadalupe-859b4.firebaseapp.com",
+        "databaseURL": "https://guadalupe-859b4.firebaseio.com",
+        "projectId": "guadalupe-859b4",
+        "storageBucket": "guadalupe-859b4.appspot.com",
+        "messagingSenderId": "966222303459",
+        "appId": "1:966222303459:web:08ac4bc2122bd30115f5d6",
+        "measurementId": "G-3RQJ6LV3KC"
+      },
+      "facebook": {
+        "appId": "542223806319835"
+      }
     }
   }
 }

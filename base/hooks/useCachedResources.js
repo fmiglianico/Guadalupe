@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import * as firebase from 'firebase';
 
 import { Ionicons, MaterialIcons, FontAwesome, MaterialCommunityIcons } from '@expo/vector-icons';
 import * as Font from 'expo-font';
@@ -34,7 +35,7 @@ export default function useCachedResources() {
           ...FontAwesome.font,
           ...MaterialIcons.font,
           ...MaterialCommunityIcons.font
-        }),
+        })
       ]).catch((error) => {
         console.error(error);
       }).then(() => {

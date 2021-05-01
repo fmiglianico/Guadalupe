@@ -1,17 +1,38 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { Button } from "react-native-elements";
+import Constants from 'expo-constants';
+import * as Facebook from 'expo-facebook';
 
-import { facebookLogin, facebookLoginFulfilled } from '../reducer/authReducer';
+import { facebookLogin, facebookLoginFulfilled, facebookLoginRejected } from '../reducer/authReducer';
 import * as Colors from '../../base/constant/Colors';
+import firebase from '../../base/utils/firebase';
+
 
 function FacebookLoginButton({ isLoggingIn, facebookLogin, facebookLoginFulfilled }) {
 
-  const buttonPressed = () => {
-    facebookLogin('abc');
-    setTimeout(() => {
-      facebookLoginFulfilled('abc');
-    }, 500);
+  const appId = Constants.manifest.extra.facebook.appId;
+
+  const buttonPressed = async () => {
+
+    facebookLogin();
+    await Facebook.initializeAsync({appId});
+    const { type, token } = await Facebook.logInWithReadPermissionsAsync();
+    switch (type) {
+      case 'success': {
+        await firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL);  // Set persistent auth state
+        const credential = firebase.auth.FacebookAuthProvider.credential(token);
+        const facebookProfileData = await firebase.auth().signInWithCredential(credential);  // Sign in with Facebook credential
+  
+        // Do something with Facebook profile data
+        // OR you have subscribed to auth state change, authStateChange handler will process the profile data
+        
+        facebookLoginFulfilled(facebookProfileData);
+      }
+      case 'cancel': {
+        facebookLoginRejected("canceled");
+      }
+    }
   };
 
   return (
